@@ -1,13 +1,27 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    // n steps
+    let complement = target - array[i];
+    for (let j = i + 1; j < array.length; j++) {
+      // n * n steps
+      if (array[j] === complement) return true;
+    }
+  }
+  return false;
 }
+
+console.log(hasTargetSum([4], 4));
 
 /* 
   Write the Big O time complexity of your function here
+  run time complexity is O(n^2)
+  space complexity is O(n)
 */
 
 /* 
-  Add your pseudocode here
+  iterate through the array twice adding each iteration per array index 
+  set a compliment to equall the difference of the target and the first iteration
+return true if the compliment equals the second iteration value at some point through the array
 */
 
 /*
